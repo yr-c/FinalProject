@@ -29,6 +29,15 @@ public class Department {
      * @return Whether the department name is valid.
      */
     public static boolean isDepartmentNameValid(String departmentName) {
+        if (departmentName == null || departmentName.isBlank()) {
+            return false;
+        }
+        for (char c : departmentName.toCharArray()) {
+            // 32 = space, 65 = A, 90 = Z, 97 = a, 122 = z
+            if (!(c == 32 || c >= 65 && c <= 90 || c >= 97 && c <= 122)) {
+                return false;
+            }
+        }
         return true;
     }
 }
