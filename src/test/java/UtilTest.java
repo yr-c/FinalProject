@@ -15,7 +15,7 @@ public class UtilTest {
     }
 
     @Test
-    @DisplayName("toTitleCase: hEllO -> Hello")
+    @DisplayName("toTitleCase: 'hEllO' -> 'Hello'")
     void testToTitleCase2() {
         String input = "hEllO";
         String expected = "Hello";
@@ -39,6 +39,26 @@ public class UtilTest {
     void testToTitleCase4() {
         String input = null;
         String expected = null;
+        String actual = Util.toTitleCase(input);
+
+        Assertions.assertEquals(expected,actual);
+    }
+
+    @Test
+    @DisplayName("toTitleCase: 'hi there!' -> 'Hi There!'")
+    void testToTitleCase5() {
+        String input = "hi there!";
+        String expected = "Hi There!";
+        String actual = Util.toTitleCase(input);
+
+        Assertions.assertEquals(expected,actual);
+    }
+
+    @Test
+    @DisplayName("toTitleCase: 'aBc dE f ' -> 'Abc De F '")
+    void testToTitleCase6() {
+        String input = "aBc dE f ";
+        String expected = "Abc De F ";
         String actual = Util.toTitleCase(input);
 
         Assertions.assertEquals(expected,actual);
