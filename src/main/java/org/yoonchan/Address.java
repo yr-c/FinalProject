@@ -32,7 +32,7 @@ public class Address {
      * @param postalCode The postal code to be checked.
      * @return Whether the postal code is valid.
      */
-    private static boolean isPostalCodeValid(String postalCode) {
+    public static boolean isPostalCodeValid(String postalCode) {
         return true;
     }
 }
