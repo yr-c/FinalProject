@@ -75,8 +75,28 @@ public class AddressTest {
     }
 
     @Test
-    @DisplayName("isPostalCodeValid: ' ' -> false")
+    @DisplayName("isPostalCodeValid: 'B9R0P2' -> true")
     void testIsPostalCodeValid8() {
+        String input = "B9R0P2";
+        boolean expected = true;
+        boolean actual = Address.isPostalCodeValid(input);
+
+        Assertions.assertEquals(expected,actual);
+    }
+
+    @Test
+    @DisplayName("isPostalCodeValid: 'Q4RM2M' -> false")
+    void testIsPostalCodeValid9() {
+        String input = "Q4RM2M";
+        boolean expected = false;
+        boolean actual = Address.isPostalCodeValid(input);
+
+        Assertions.assertEquals(expected,actual);
+    }
+
+    @Test
+    @DisplayName("isPostalCodeValid: ' ' -> false")
+    void testIsPostalCodeValid10() {
         String input = " ";
         boolean expected = false;
         boolean actual = Address.isPostalCodeValid(input);
@@ -86,7 +106,7 @@ public class AddressTest {
 
     @Test
     @DisplayName("isPostalCodeValid: '' -> false")
-    void testIsPostalCodeValid9() {
+    void testIsPostalCodeValid11() {
         String input = "";
         boolean expected = false;
         boolean actual = Address.isPostalCodeValid(input);
@@ -96,7 +116,7 @@ public class AddressTest {
 
     @Test
     @DisplayName("isPostalCodeValid: null -> false")
-    void testIsPostalCodeValid10() {
+    void testIsPostalCodeValid12() {
         String input = null;
         boolean expected = false;
         boolean actual = Address.isPostalCodeValid(input);
