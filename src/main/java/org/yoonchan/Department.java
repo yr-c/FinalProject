@@ -14,12 +14,13 @@ public class Department {
     private static int nextId = 1;
 
     public Department(String departmentName) {
-        if (isDepartmentNameValid(departmentName)) {
-            this.departmentId = String.format("D%02d", nextId++);
-            this.departmentName = departmentName;
+        if (!isDepartmentNameValid(departmentName)) {
+            this.departmentId = null;
+            this.departmentName = null;
         }
-        this.departmentId = null;
-        this.departmentName = null;
+
+        this.departmentId = String.format("D%02d", nextId++);
+        this.departmentName = departmentName;
     }
 
     /**
@@ -31,6 +32,7 @@ public class Department {
         if (departmentName == null || departmentName.isBlank()) {
             return false;
         }
+
         for (char c : departmentName.toCharArray()) {
             // 32 = ' ' (space), 65 = 'A', 90 = 'Z', 97 = 'a', 122 = 'z'
             if (!(c == 32 || c >= 65 && c <= 90 || c >= 97 && c <= 122)) {
