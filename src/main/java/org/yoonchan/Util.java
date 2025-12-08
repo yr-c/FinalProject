@@ -10,14 +10,18 @@ public class Util {
         if (str == null || str.isEmpty()) {
             return str;
         }
+        str = str.strip();
         String result = "";
         String[] substrings = str.split(" ");
         for (int i = 0; i < substrings.length; i++) {
             substrings[i] = substrings[i].toUpperCase();
             substrings[i] = substrings[i].charAt(0) + substrings[i].substring(1).toLowerCase();
-            result += substrings[i] + " ";
+            if (i < substrings.length - 1) {
+                result += substrings[i] + " ";
+            } else {
+                result += substrings[i];
+            }
         }
-
         return result;
     }
 }
