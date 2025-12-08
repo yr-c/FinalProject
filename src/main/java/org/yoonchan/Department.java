@@ -18,4 +18,8 @@ public class Department {
         this.departmentId = String.format("%04d", nextId++);
         this.departmentName = departmentName;
     }
+
+    public static boolean isDepartmentNameValid(String departmentName) {
+        return true;
+    }
 }
