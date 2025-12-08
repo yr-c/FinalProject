@@ -2,7 +2,7 @@ package org.yoonchan;
 
 public class Util {
     /**
-     * Formats each word in a string to title case. Assumes words in str are always separated by space.
+     * Formats each word in a string to title case. Assumes words in the string are always separated by space.
      * @param str The input string to be formatted.
      * @return The formatted string, in title case.
      */
