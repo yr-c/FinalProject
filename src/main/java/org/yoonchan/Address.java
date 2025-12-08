@@ -15,4 +15,16 @@ public class Address {
     private String city;
     private Province province;
     private String postalCode;
+
+    public Address(int streetNo, String street, String city, Province province, String postalCode) {
+        this.streetNo = streetNo;
+        this.street = street;
+        this.city = city;
+        this.province = province;
+        this.postalCode = postalCode;
+    }
+
+    private static boolean isPostalCodeValid(String postalCode) {
+        return true;
+    }
 }
