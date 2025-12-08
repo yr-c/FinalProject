@@ -7,16 +7,15 @@ import lombok.ToString;
 
 @EqualsAndHashCode
 @Getter
-@Setter
 @ToString
 public class Department {
     private String departmentId;
-    private String departmentName;
+    @Setter private String departmentName;
     private static int nextId = 1;
 
-    public Department(String departmentId, String departmentName) {
+    public Department(String departmentName) {
         if (isDepartmentNameValid(departmentName)) {
-            this.departmentId = String.format("%04d", nextId++);
+            this.departmentId = String.format("D%02d", nextId++);
             this.departmentName = departmentName;
         }
         this.departmentId = null;
