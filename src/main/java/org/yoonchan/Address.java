@@ -17,11 +17,19 @@ public class Address {
     private String postalCode;
 
     public Address(int streetNo, String street, String city, Province province, String postalCode) {
+        if (!isPostalCodeValid(postalCode)) {
+            this.streetNo = -1;
+            this.street = null;
+            this.city = null;
+            this.province = null;
+            this.postalCode = null;
+        }
+
         this.streetNo = streetNo;
         this.street = street;
         this.city = city;
         this.province = province;
-        this.postalCode = postalCode;
+        this.postalCode = postalCode.toUpperCase();
     }
 
     /**
