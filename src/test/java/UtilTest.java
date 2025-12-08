@@ -55,10 +55,10 @@ public class UtilTest {
     }
 
     @Test
-    @DisplayName("toTitleCase: 'aBc dE f ' -> 'Abc De F '")
+    @DisplayName("toTitleCase: 'aBc dE f ' -> 'Abc De F'")
     void testToTitleCase6() {
         String input = "aBc dE f ";
-        String expected = "Abc De F ";
+        String expected = "Abc De F";
         String actual = Util.toTitleCase(input);
 
         Assertions.assertEquals(expected,actual);
