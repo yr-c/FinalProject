@@ -7,13 +7,12 @@ import lombok.ToString;
 
 @EqualsAndHashCode
 @Getter
-@Setter
 @ToString
 public class Address {
-    private int streetNo;
-    private String street;
-    private String city;
-    private Province province;
+    @Setter private int streetNo;
+    @Setter private String street;
+    @Setter private String city;
+    @Setter private Province province;
     private String postalCode;
 
     public Address(int streetNo, String street, String city, Province province, String postalCode) {
@@ -30,6 +29,10 @@ public class Address {
         this.city = city;
         this.province = province;
         this.postalCode = postalCode.toUpperCase();
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = isPostalCodeValid(postalCode) ? postalCode : this.postalCode;
     }
 
     /**
