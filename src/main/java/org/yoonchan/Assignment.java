@@ -22,4 +22,15 @@ public class Assignment {
         this.assignmentName = assignmentName;
         this.assignmentId = String.format("%04d", nextId++);
     }
+
+    /**
+     * Calculates the average score for the assignment.
+     */
+    public void calcAssignmentAvg() {
+        int sum = 0;
+        for (int score : scores) {
+            sum += score;
+        }
+        System.out.println("Average score: " + (sum / scores.toArray().length));
+    }
 }
