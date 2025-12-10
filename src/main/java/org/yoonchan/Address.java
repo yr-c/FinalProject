@@ -47,11 +47,10 @@ public class Address {
 
         for (int i = 0; i < postalCode.length(); i++) {
             char c = postalCode.charAt(i);
-            // 65 = 'A', 90 = 'Z', 97 = 'a', 122 = 'z'
-            // 48 = '0', 57 = '9'
-            if (i % 2 == 0 && !(c >= 65 && c <= 90 || c >= 97 && c <= 122)) {
+
+            if (i % 2 == 0 && !Character.isLetter(c)) {
                 return false;
-            } else if (i % 2 == 1 && !(c >= 48 && c <= 57)){
+            } else if (i % 2 == 1 && !Character.isDigit(c)) {
                 return false;
             }
         }
