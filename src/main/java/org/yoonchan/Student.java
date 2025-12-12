@@ -26,4 +26,18 @@ public class Student {
         this.department = department;
         this.registeredCourses = new ArrayList<Course>();
     }
+
+    /**
+     * Registers a course. This method: <p>
+     * 1. Adds the course to the student's registeredCourses list, <br>
+     * 2. Adds the student to the course's registeredStudents list, <br>
+     * 3. appends a null for the scores of each assignment of the course. <p>
+     * If the course is already registered (exists in the student's registeredCourses list), directly returns false
+     * without adding anything.
+     * @param course The course to be added to the student.
+     * @return Whether the course had successfully been added to the student.
+     */
+    public boolean registerCourse(Course course) {
+        return true;
+    }
 }
