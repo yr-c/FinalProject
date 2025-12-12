@@ -33,7 +33,7 @@ public class Student {
         for (Course course : registeredCourses) {
             registeredCourseDetails += '{' + course.getCourseId() + ", ";
             registeredCourseDetails += course.getCourseName() + ", ";
-            registeredCourseDetails += course.getDepartment().getDepartmentName() + "} ";
+            registeredCourseDetails += course.getDepartment().getDepartmentName() + "}, ";
         }
 
         String studentDetails =
@@ -44,7 +44,7 @@ public class Student {
                 ", address=" + address +
                 ", department=" + department;
 
-        return studentDetails + ", registeredCourses=" + registeredCourseDetails + "\b}";
+        return studentDetails + ", registeredCourses=" + registeredCourseDetails + "\b\b}"; // Backspaces the redundant "}," at the end of string.
     }
 
     /**
