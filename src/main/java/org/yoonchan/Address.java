@@ -37,8 +37,9 @@ public class Address {
 
     /**
      * Checks if a given postcode is valid.
-     * The length of a postal code can only be 6.
-     * The postcode must follow the format: 'CDCDCD', where C is a character and D is a digit.
+     * <p>
+     * - The length of a postal code can only be 6. <br>
+     * - The postcode must follow the format: 'CDCDCD', where C is a character and D is a digit. <br>
      * (e.g. A1B2C3 -> true, AAB2C3 -> false)
      * @param postalCode The postal code to be checked.
      * @return Whether the postal code is valid.

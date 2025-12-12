@@ -45,7 +45,8 @@ public class Assignment {
 
     /**
      * Generates random scores for all students in an assignment,
-     * the scores are generated with the following rule: <p>
+     * the scores are generated with the following rule:
+     * <p>
      * Firstly generate a random number in range [0, 10], then <br>
      * - if the number is 0, then generate a random score in range [0, 60) for the student; <br>
      * - if the number is 1, 2, then generate a random score in range [60, 70) for the student; <br>
