@@ -38,6 +38,16 @@ public class Student {
      * @return Whether the course had successfully been added to the student.
      */
     public boolean registerCourse(Course course) {
+        if (this.registeredCourses.contains(course)) {
+            return false;
+        }
+
+        this.registeredCourses.add(course);
+        course.getRegisteredStudents().add(this);
+
+        for (Assignment assignment : course.getAssignments()) {
+            assignment.getScores().add(null);
+        }
         return true;
     }
 }
