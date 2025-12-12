@@ -24,6 +24,14 @@ public class Assignment {
         this.assignmentId = String.format("%04d", nextId++);
     }
 
+    @Override
+    public String toString() {
+        return "Assignment{" +
+                "assignmentId='" + assignmentId + '\'' +
+                ", assignmentName='" + assignmentName + '\'' +
+                ", weight=" + weight;
+    }
+
     /**
      * Calculates the average score for the assignment.
      */
