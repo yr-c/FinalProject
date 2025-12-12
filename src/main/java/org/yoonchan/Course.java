@@ -46,6 +46,14 @@ public class Course {
      * @return Whether the student has successfully been registered.
      */
     public boolean registerStudent(Student student) {
+        if (this.registeredStudents.contains(student)) {
+            return false;
+        }
+
+        this.registeredStudents.add(student);
+        for (Assignment assignment : assignments) {
+            assignment.getScores().add(null);
+        }
         return true;
     }
 }
