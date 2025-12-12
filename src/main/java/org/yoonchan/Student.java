@@ -27,6 +27,34 @@ public class Student {
         this.registeredCourses = new ArrayList<Course>();
     }
 
+    @Override
+    public String toString() {
+        String registeredCourseDetails = "";
+        for (Course course : registeredCourses) {
+            registeredCourseDetails += '{' + course.getCourseId() + ", ";
+            registeredCourseDetails += course.getCourseName() + ", ";
+            registeredCourseDetails += course.getDepartment().getDepartmentName() + "} ";
+        }
+
+        String studentDetails =
+                "Student{" +
+                "studentId='" + studentId + '\'' +
+                ", studentName='" + studentName + '\'' +
+                ", gender=" + gender +
+                ", address=" + address +
+                ", department=" + department;
+
+        return studentDetails + ", registeredCourses=" + registeredCourseDetails + "\b}";
+    }
+
+    /**
+     * Converts a student to a simple string with only the studentId, the studentName, and departmentName.
+     * @return The simplified string with studentId, the studentName, and departmentName.
+     */
+    public String toSimplifiedString() {
+        return String.format("%s, %s, %s", studentId, studentName, department.getDepartmentName());
+    }
+
     /**
      * Registers a course. This method: <p>
      * 1. Adds the course to the student's registeredCourses list, <br>
@@ -49,14 +77,6 @@ public class Student {
             assignment.getScores().add(null);
         }
         return true;
-    }
-
-    /**
-     * Converts a student to a simple string with only the studentId, the studentName, and departmentName.
-     * @return The simplified string with studentId, the studentName, and departmentName.
-     */
-    public String toSimplifiedString() {
-        return String.format("%s, %s, %s", studentId, studentName, department.getDepartmentName());
     }
 
     /**
