@@ -17,7 +17,7 @@ public class Assignment {
     private ArrayList<Integer> scores;
     private static int nextId;
 
-    public Assignment(ArrayList<Integer> scores, double weight, String assignmentName) {
+    public Assignment(String assignmentName, ArrayList<Integer> scores, double weight) {
         this.scores = scores;
         this.weight = weight;
         this.assignmentName = assignmentName;
