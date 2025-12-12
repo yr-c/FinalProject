@@ -38,4 +38,14 @@ public class Course {
         }
         return sum == 100;
     }
+
+    /**
+     * Adds a student to the student list of the course.
+     * Also adds a new null element to each assignment of this course, and add a new null element for the finalScores.
+     * @param student The student to be registered.
+     * @return Whether the student has successfully been registered.
+     */
+    public boolean registerStudent(Student student) {
+        return true;
+    }
 }
