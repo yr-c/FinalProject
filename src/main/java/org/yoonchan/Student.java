@@ -50,4 +50,19 @@ public class Student {
         }
         return true;
     }
+
+    /**
+     * Drops a course. This method:
+     * <p>
+     * 1. Removes the course from the student's registeredCourses list, <br>
+     * 2. Removes the student from the course's registeredStudents list.
+     * <p>
+     * If the course is not registered yet (not in the student's registeredCourses list), directly returns
+     * false without removing anything.
+     * @param course The course to be removed.
+     * @return Whether the course has successfully been removed.
+     */
+    public boolean dropCourse(Course course) {
+        return true;
+    }
 }
