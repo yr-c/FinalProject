@@ -52,6 +52,14 @@ public class Student {
     }
 
     /**
+     * Converts a student to a simple string with only the studentId, the studentName, and departmentName.
+     * @return The simplified string with studentId, the studentName, and departmentName.
+     */
+    public String toSimplifiedString() {
+        return String.format("%s, %s, %s", studentId, studentName, department.getDepartmentName());
+    }
+
+    /**
      * Drops a course. This method:
      * <p>
      * 1. Removes the course from the student's registeredCourses list, <br>
