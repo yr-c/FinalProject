@@ -63,6 +63,13 @@ public class Student {
      * @return Whether the course has successfully been removed.
      */
     public boolean dropCourse(Course course) {
+        if (!this.registeredCourses.contains(course)) {
+            return false;
+        }
+
+        this.registeredCourses.remove(course);
+        course.getRegisteredStudents().remove(this);
+
         return true;
     }
 }
