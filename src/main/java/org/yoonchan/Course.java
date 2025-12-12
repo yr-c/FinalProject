@@ -1,7 +1,14 @@
 package org.yoonchan;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.ArrayList;
 
+@EqualsAndHashCode
+@Getter
+@Setter
 public class Course {
     private String courseId;
     private String courseName;
