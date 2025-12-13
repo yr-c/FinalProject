@@ -56,16 +56,33 @@ public class Assignment {
      * - if the number is 3, 4, then generate a random score in range [70, 80) for the student; <br>
      * - if the number is 5, 6, 7, 8, then generate a random score in range [80, 90) for the student; <br>
      * - if the number is 9, 10, then generate a random score in range [90, 100] for the student.
+     * <p>
+     * All scores are generated as a relative percentage with respect to the assignment's maxScore.
      */
     public void generateRandomScore() {
         Random random = new Random();
         for (int i = 0; i < scores.size(); i++) {
             switch (random.nextInt(0, 11)) {
-                case 0 -> scores.set(i, random.nextInt(0, 60));
-                case 1, 2 -> scores.set(i, random.nextInt(60, 70));
-                case 3, 4 -> scores.set(i, random.nextInt(70, 80));
-                case 5, 6, 7, 8 -> scores.set(i, random.nextInt(80, 90));
-                case 9, 10 -> scores.set(i, random.nextInt(90, 101));
+                case 0 -> {
+                    int score = (int) (random.nextDouble(0, 0.6) * this.maxScore);
+                    scores.set(i, score);
+                }
+                case 1, 2 -> {
+                    int score = (int) (random.nextDouble(0.6, 0.7) * this.maxScore);
+                    scores.set(i, score);
+                }
+                case 3, 4 -> {
+                    int score = (int) (random.nextDouble(0.7, 0.8) * this.maxScore);
+                    scores.set(i, score);
+                }
+                case 5, 6, 7, 8 -> {
+                    int score = (int) (random.nextDouble(0.8, 0.9) * this.maxScore);
+                    scores.set(i, score);
+                }
+                case 9, 10 -> {
+                    int score = (int) (random.nextDouble(0.9, 1 + Double.MIN_VALUE) * this.maxScore);
+                    scores.set(i, score);
+                }
             }
         }
     }
