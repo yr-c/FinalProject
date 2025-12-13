@@ -81,4 +81,15 @@ public class Course {
 
         return studentAverages;
     }
+
+    /**
+     * Adds a new assignment to the course.
+     * @param assignmentName The assignment to be added.
+     * @param weight The weight of the assignment to be added (0-100).
+     * @param maxScore The maximum score of the exam. (e.g. A quiz /10 would mean a max score of 10.)
+     * @return Whether the assignment was successfully added to the course.
+     */
+    public boolean addAssignment(String assignmentName, double weight, int maxScore) {
+        return true;
+    }
 }
