@@ -77,15 +77,18 @@ public class Course {
 
             // For every assignment
             for (Assignment currentIterationAssignment : this.assignments) {
-                Integer score = currentIterationAssignment.getScores().get(i);
 
-                if (score != null) {
-                    double weight = currentIterationAssignment.getWeight();
-                    int maxScore = currentIterationAssignment.getMaxScore();
+                if (i < currentIterationAssignment.getScores().size()) {
+                    Integer score = currentIterationAssignment.getScores().get(i);
 
-                    double percentageScore = ((double) score / maxScore);
-                    double weightedContribution = percentageScore * (weight / 100d);
-                    cumulatedGrade += weightedContribution;
+                    if (score != null) {
+                        double weight = currentIterationAssignment.getWeight();
+                        int maxScore = currentIterationAssignment.getMaxScore();
+
+                        double percentageScore = ((double) score / maxScore);
+                        double weightedContribution = percentageScore * (weight / 100d);
+                        cumulatedGrade += weightedContribution;
+                    }
                 }
             }
             studentAverages[i] = (int) cumulatedGrade;
@@ -114,7 +117,7 @@ public class Course {
     }
 
     /**
-     * Generates random scores for each assignment and student, and calculates the final score for each student.
+     * Generates random scores for each assignment and student, and calculates the final score for each student. Prints the result.
      */
     public void generateScores() {
         for (Assignment assignment : this.assignments) {
@@ -128,6 +131,6 @@ public class Course {
             this.finalScores.add(score);
         }
 
-        System.out.println(this.finalScores);
+        System.out.println("Final scores in " + this.courseName + " class: " + this.finalScores);
     }
 }
