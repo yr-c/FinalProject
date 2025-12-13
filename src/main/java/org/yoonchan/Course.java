@@ -33,10 +33,12 @@ public class Course {
      */
     public boolean isAssignmentWeightValid() {
         double sum = 0;
+
         for (Assignment assignment : assignments) {
             sum += assignment.getWeight();
         }
-        return sum == 100;
+
+        return sum == 1;
     }
 
     /**
@@ -54,6 +56,7 @@ public class Course {
         for (Assignment assignment : assignments) {
             assignment.getScores().add(null);
         }
+
         return true;
     }
 
@@ -71,9 +74,16 @@ public class Course {
             // For every assignment
             for (Assignment currentIterationAssignment : this.assignments) {
                 Integer score = currentIterationAssignment.getScores().get(i);
-                double weight = currentIterationAssignment.getWeight();
+
                 if (score != null) {
-                    cumulatedGrade += score * (weight / 100d);
+                    double weight = currentIterationAssignment.getWeight();
+                    int maxScore = currentIterationAssignment.getMaxScore();
+
+                    double percentageScore = ((double)score / maxScore);
+                    double weightedContribution = percentageScore * weight;
+                    cumulatedGrade += weightedContribution;
+
+                    cumulatedGrade += score * weight;
                 }
             }
             studentAverages[i] = (int) cumulatedGrade;
@@ -90,6 +100,14 @@ public class Course {
      * @return Whether the assignment was successfully added to the course.
      */
     public boolean addAssignment(String assignmentName, double weight, int maxScore) {
+        Assignment newAssignment = new Assignment(assignmentName, new ArrayList<Integer>(), weight, maxScore);
+
+        this.assignments.add(newAssignment);
+        if (!this.isAssignmentWeightValid()) {
+            assignments.removeLast();
+            return false;
+        }
+
         return true;
     }
 }

@@ -15,13 +15,15 @@ public class Assignment {
     private String assignmentName;
     private double weight; // the sum of weights of all assignment should be 100
     private ArrayList<Integer> scores;
+    private int maxScore;
     private static int nextId;
 
-    public Assignment(String assignmentName, ArrayList<Integer> scores, double weight) {
-        this.scores = scores;
-        this.weight = weight;
-        this.assignmentName = assignmentName;
+    public Assignment(String assignmentName, ArrayList<Integer> scores, double weight, int maxScore) {
         this.assignmentId = String.format("%04d", nextId++);
+        this.assignmentName = assignmentName;
+        this.weight = weight;
+        this.scores = scores;
+        this.maxScore = maxScore;
     }
 
     @Override
@@ -29,7 +31,8 @@ public class Assignment {
         return "Assignment{" +
                 "assignmentId='" + assignmentId + '\'' +
                 ", assignmentName='" + assignmentName + '\'' +
-                ", weight=" + weight;
+                ", weight=" + weight +
+                ", maxScore=" + maxScore + '}';
     }
 
     /**
