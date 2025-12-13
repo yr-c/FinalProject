@@ -29,6 +29,27 @@ public class Course {
         this.finalScores = new ArrayList<>();
     }
 
+    @Override
+    public String toString() {
+        String studentDetails = "";
+
+        for (Student student : registeredStudents) {
+            studentDetails += '{' + student.getStudentId() + ", ";
+            studentDetails += student.getStudentName() + ", ";
+            studentDetails += student.getDepartment().getDepartmentName() + "}, ";
+        }
+
+        String courseDetails = "Course{" +
+                "courseId='" + courseId + '\'' +
+                ", courseName='" + courseName + '\'' +
+                ", credits=" + credits +
+                ", department=" + department.getDepartmentName() +
+                ", assignments=" + assignments +
+                '}';
+
+        return courseDetails + ", registeredStudents=" + studentDetails + "\b\b}"; // Backspaces the redundant "}," at the end of string.
+    }
+
     /**
      * Converts a course to a simple string with only the courseId, courseName, credits, and departmentName.
      * @return The simple string with only the courseId, courseName, credits, and departmentName.
