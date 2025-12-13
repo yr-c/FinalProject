@@ -162,4 +162,17 @@ public class Course {
 
         System.out.println("Final scores in " + this.courseName + " class: " + this.finalScores);
     }
+
+    /**
+     * Displays the scores of a course in a table, with the assignment averages and student weighted average.
+     * <p>
+     * The table header will be the nam course name.
+     * The rows will be the students.
+     * The last row will be the average of all students.
+     * The column will be the assignments.
+     * The last column will be the final score.
+     */
+    public void displayScores() {
+
+    }
 }
