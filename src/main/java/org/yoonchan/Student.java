@@ -75,10 +75,6 @@ public class Student {
         this.registeredCourses.add(course);
         course.registerStudent(this);
 
-        for (Assignment assignment : course.getAssignments()) {
-            assignment.getScores().add(null);
-        }
-
         return true;
     }
 
