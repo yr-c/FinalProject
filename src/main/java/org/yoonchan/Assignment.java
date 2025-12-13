@@ -13,8 +13,8 @@ import java.util.Random;
 public class Assignment {
     private String assignmentId;
     private String assignmentName;
-    private double weight; // the sum of weights of all assignment should be 100
     private ArrayList<Integer> scores;
+    private double weight;
     private int maxScore;
     private static int nextId;
 
@@ -61,11 +61,11 @@ public class Assignment {
         Random random = new Random();
         for (int i = 0; i < scores.size(); i++) {
             switch (random.nextInt(0, 11)) {
-                case 0 -> scores.add(i, random.nextInt(0, 60));
-                case 1, 2 -> scores.add(i, random.nextInt(60, 70));
-                case 3, 4 -> scores.add(i, random.nextInt(70, 80));
-                case 5, 6, 7, 8 -> scores.add(i, random.nextInt(80, 90));
-                case 9, 10 -> scores.add(i, random.nextInt(90, 101));
+                case 0 -> scores.set(i, random.nextInt(0, 60));
+                case 1, 2 -> scores.set(i, random.nextInt(60, 70));
+                case 3, 4 -> scores.set(i, random.nextInt(70, 80));
+                case 5, 6, 7, 8 -> scores.set(i, random.nextInt(80, 90));
+                case 9, 10 -> scores.set(i, random.nextInt(90, 101));
             }
         }
     }
