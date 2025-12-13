@@ -30,6 +30,14 @@ public class Course {
     }
 
     /**
+     * Converts a course to a simple string with only the courseId, courseName, credits, and departmentName.
+     * @return The simple string with only the courseId, courseName, credits, and departmentName.
+     */
+    public String toSimplifiedString() {
+        return String.format("{%s, %s, %f, %s}\n", courseId, courseName, credits, department.getDepartmentName());
+    }
+
+    /**
      * Checks if the sum of weights of all assignments of that course equals to 100.
      * @return Whether the assignment weight is valid.
      */
