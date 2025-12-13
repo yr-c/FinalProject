@@ -121,18 +121,13 @@ public class Course {
             assignment.generateRandomScore();
         }
 
-        int studentsNum = this.registeredStudents.size();
+        int[] weightedAverages = this.calcStudentsAverage();
+        this.finalScores.clear();
 
-        for (int i = 0; i < studentsNum; i++) {
-            int cumulatedScore = 0;
-
-            for (Assignment assignment : this.assignments) {
-                cumulatedScore += assignment.getScores().get(i);
-            }
-
-            finalScores.add(i, cumulatedScore);
+        for (int score : weightedAverages) {
+            this.finalScores.add(score);
         }
 
-        System.out.println(finalScores.toString());
+        System.out.println(this.finalScores);
     }
 }
