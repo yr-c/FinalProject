@@ -73,11 +73,12 @@ public class Student {
         }
 
         this.registeredCourses.add(course);
-        course.getRegisteredStudents().add(this);
+        course.registerStudent(this);
 
         for (Assignment assignment : course.getAssignments()) {
             assignment.getScores().add(null);
         }
+
         return true;
     }
 
