@@ -85,9 +85,9 @@ public class Course {
                         double weight = currentIterationAssignment.getWeight();
                         int maxScore = currentIterationAssignment.getMaxScore();
 
-                        double percentageScore = ((double) score / maxScore);
+                        double percentageScore = (score / (double) maxScore);
                         double weightedContribution = percentageScore * (weight / 100d);
-                        cumulatedGrade += weightedContribution;
+                        cumulatedGrade += weightedContribution * 100;
                     }
                 }
             }
