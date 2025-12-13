@@ -56,4 +56,29 @@ public class Course {
         }
         return true;
     }
+
+    /**
+     * Calculates the weighted average score of the students in the course.
+     * @return The weighted averages score of the students in the course, in an int array.
+     */
+    public int[] calcStudentsAverage() {
+        int[] studentAverages = new int[this.getRegisteredStudents().size()];
+
+        // For every student
+        for (int i = 0; i < this.registeredStudents.size(); i++) {
+            double cumulatedGrade = 0;
+
+            // For every assignment
+            for (Assignment currentIterationAssignment : this.assignments) {
+                Integer score = currentIterationAssignment.getScores().get(i);
+                double weight = currentIterationAssignment.getWeight();
+                if (score != null) {
+                    cumulatedGrade += score * (weight / 100d);
+                }
+            }
+            studentAverages[i] = (int) cumulatedGrade;
+        }
+
+        return studentAverages;
+    }
 }
