@@ -16,6 +16,7 @@ public class Course {
     private Department department;
     private ArrayList<Assignment> assignments;
     private ArrayList<Student> registeredStudents;
+    private ArrayList<Integer> finalScores;
     private static int nextId = 1;
 
     public Course(String courseName, double credits, Department department, ArrayList<Assignment> assignments, ArrayList<Student> registeredStudents) {
@@ -25,10 +26,11 @@ public class Course {
         this.department = department;
         this.assignments = assignments;
         this.registeredStudents = registeredStudents;
+        this.finalScores = new ArrayList<>();
     }
 
     /**
-     * Checks if the sum of weights of all assignments of that course equals to 100%.
+     * Checks if the sum of weights of all assignments of that course equals to 100.
      * @return Whether the assignment weight is valid.
      */
     public boolean isAssignmentWeightValid() {
@@ -38,7 +40,7 @@ public class Course {
             sum += assignment.getWeight();
         }
 
-        return sum == 1;
+        return sum == 100;
     }
 
     /**
@@ -56,6 +58,8 @@ public class Course {
         for (Assignment assignment : assignments) {
             assignment.getScores().add(null);
         }
+
+        finalScores.add(null);
 
         return true;
     }
@@ -80,10 +84,8 @@ public class Course {
                     int maxScore = currentIterationAssignment.getMaxScore();
 
                     double percentageScore = ((double) score / maxScore);
-                    double weightedContribution = percentageScore * weight;
+                    double weightedContribution = percentageScore * (weight / 100d);
                     cumulatedGrade += weightedContribution;
-
-                    cumulatedGrade += score * weight;
                 }
             }
             studentAverages[i] = (int) cumulatedGrade;
@@ -109,5 +111,28 @@ public class Course {
         }
 
         return true;
+    }
+
+    /**
+     * Generates random scores for each assignment and student, and calculates the final score for each student.
+     */
+    public void generateScores() {
+        for (Assignment assignment : this.assignments) {
+            assignment.generateRandomScore();
+        }
+
+        int studentsNum = this.registeredStudents.size();
+
+        for (int i = 0; i < studentsNum; i++) {
+            int cumulatedScore = 0;
+
+            for (Assignment assignment : this.assignments) {
+                cumulatedScore += assignment.getScores().get(i);
+            }
+
+            finalScores.add(i, cumulatedScore);
+        }
+
+        System.out.println(finalScores.toString());
     }
 }
