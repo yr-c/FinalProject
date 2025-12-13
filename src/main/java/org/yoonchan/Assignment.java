@@ -20,7 +20,7 @@ public class Assignment {
 
     public Assignment(String assignmentName, ArrayList<Integer> scores, double weight, int maxScore) {
         this.assignmentId = String.format("%04d", nextId++);
-        this.assignmentName = assignmentName;
+        this.assignmentName = Util.toTitleCase(assignmentName);
         this.weight = weight;
         this.scores = scores;
         this.maxScore = maxScore;
