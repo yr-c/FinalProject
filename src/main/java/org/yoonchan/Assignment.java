@@ -31,8 +31,7 @@ public class Assignment {
         return "Assignment{" +
                 "assignmentId='" + assignmentId + '\'' +
                 ", assignmentName='" + assignmentName + '\'' +
-                ", weight=" + weight +
-                ", maxScore=" + maxScore + '}';
+                ", weight=" + weight + '}';
     }
 
     /**
