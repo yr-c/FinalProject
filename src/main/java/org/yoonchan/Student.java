@@ -36,8 +36,7 @@ public class Student {
             registeredCourseDetails += course.getDepartment().getDepartmentName() + "}, ";
         }
 
-        String studentDetails =
-                "Student{" +
+        String studentDetails = "Student{" +
                 "studentId='" + studentId + '\'' +
                 ", studentName='" + studentName + '\'' +
                 ", gender=" + gender +
