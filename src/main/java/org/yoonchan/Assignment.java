@@ -52,11 +52,11 @@ public class Assignment {
      * - if the number is 1, 2, then generate a random score in range [60, 70) for the student; <br>
      * - if the number is 3, 4, then generate a random score in range [70, 80) for the student; <br>
      * - if the number is 5, 6, 7, 8, then generate a random score in range [80, 90) for the student; <br>
-     * - if the number is 9, 10, then generate a random score in range [90, 100] for the student;
+     * - if the number is 9, 10, then generate a random score in range [90, 100] for the student.
      */
     public void generateRandomScore() {
         Random random = new Random();
-        for (int i = 0; i < scores.toArray().length; i++) {
+        for (int i = 0; i < scores.size(); i++) {
             switch (random.nextInt(0, 11)) {
                 case 0 -> scores.add(i, random.nextInt(0, 60));
                 case 1, 2 -> scores.add(i, random.nextInt(60, 70));
