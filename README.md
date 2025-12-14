@@ -1,8 +1,9 @@
 # Final project
 
 ### Author: Yoonchan Rhie
+#### *Vanier ID: 2549299*
 
-The final project for the Introduction to Programming course
+This is the final project for the Introduction to Programming course
 at Vanier college. It is an object-oriented Java application 
 designed to simulate a basic student, course, and assignment 
 management system for a college setting.
@@ -29,7 +30,7 @@ grades and assignment averages, in a cleanly formatted, aligned table.
 (Title Case conversion).
 
 ## Class structure
-The project is structured into six core classes and two enumerations (`Province` and `Gender`).
+The project is structured into six core classes and two enumerations (`Gender` and `Province`).
 
 | Class      | Description                                                                                  |
 |------------|----------------------------------------------------------------------------------------------|
@@ -39,3 +40,8 @@ The project is structured into six core classes and two enumerations (`Province`
 | Assignment | Defines an assignment with a weight, name, and maximum score.                                |
 | Course     | Manages assignments and student enrollment for a specific subject.                           |
 | Util       | A static class containing the toTitleCase method used for formatting names in other classes. |
+
+| Enum     | Contains                                |
+|----------|-----------------------------------------|
+| Gender   | MALE, FEMALE                            |
+| Province | AB, BC, MB, NB, NL, NS, ON, PE, QC, SK  |
