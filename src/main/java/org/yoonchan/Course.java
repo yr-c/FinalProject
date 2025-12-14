@@ -136,7 +136,13 @@ public class Course {
      * @return Whether the assignment was successfully added to the course.
      */
     public boolean addAssignment(String assignmentName, double weight, int maxScore, boolean isLastAssignment) {
-        Assignment newAssignment = new Assignment(assignmentName, new ArrayList<Integer>(), weight, maxScore);
+
+        ArrayList<Integer> scores = new ArrayList<>();
+        for (Student student : this.registeredStudents) {
+            scores.add(null);
+        }
+
+        Assignment newAssignment = new Assignment(assignmentName, scores, weight, maxScore);
 
         this.assignments.add(newAssignment);
         if (!this.isAssignmentWeightValid(isLastAssignment)) {
@@ -175,30 +181,39 @@ public class Course {
      * The last column will be the final score.
      */
     public void displayScores() {
-        System.out.printf("Course: %s(%s)\n\t", this.courseName, this.courseId);
-
-        // Printing header row
-        if (this.assignments.isEmpty()) {
+        if (this.assignments.isEmpty() && this.registeredStudents.isEmpty()) {
             System.out.println("Nothing to show.");
             return;
         }
 
-        for (Assignment assignment : this.assignments) {
-            System.out.printf("%14s\t", assignment.getAssignmentName());
-        }
-        System.out.println("\t\tFinal score");
+        // Printing header row
+        System.out.printf("Course: %s(%s)\n\t\t\t\s\s", this.courseName, this.courseId);
 
-        // Printing rest of rows
+        int nameWidth = 14;
+        int colWidth = 15;
+
+        for (Assignment assignment : this.assignments) {
+            System.out.printf("%-" + colWidth + "s", assignment.getAssignmentName());
+        }
+        System.out.printf("%-" + colWidth + "s\n", "Final Score");
+
+        // Printing student rows
         for (int i = 0; i < this.registeredStudents.size(); i++) {
-            String row = String.format("%-10s", this.registeredStudents.get(i).getStudentName());
+            System.out.printf("%-" + nameWidth + "s", this.registeredStudents.get(i).getStudentName());
 
             for (Assignment assignment : this.assignments) {
-                row += String.format("%d\t\t", assignment.getScores().get(i));
+                Integer score = assignment.getScores().get(i);
+                String scoreString = (score != null) ? String.valueOf(score) : "-";
+                System.out.printf("%-" + colWidth + "s", scoreString);
             }
 
-            row += String.format("\t%d", this.finalScores.get(i));
+            System.out.printf("%-" + colWidth + "d\n", this.finalScores.get(i));
+        }
 
-            System.out.println(row);
+        // Printing assignment average row
+        System.out.printf("%-14s", "Average");
+        for (Assignment assignment : this.assignments) {
+            System.out.printf("%-" + colWidth + "d", (int) assignment.calcAssignmentAvg());
         }
     }
 }
