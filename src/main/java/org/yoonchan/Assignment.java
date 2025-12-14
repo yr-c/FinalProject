@@ -61,8 +61,9 @@ public class Assignment {
      */
     public void generateRandomScore() {
         Random random = new Random();
+
         for (int i = 0; i < scores.size(); i++) {
-            switch (random.nextInt(0, 11)) {
+            switch (random.nextInt(11)) {
                 case 0 -> {
                     int score = (int) (random.nextDouble(0, 0.6) * this.maxScore);
                     scores.set(i, score);
