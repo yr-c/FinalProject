@@ -62,14 +62,16 @@ public class Course {
      * Checks if the sum of weights of all assignments of that course equals to 100.
      * @return Whether the assignment weight is valid.
      */
-    public boolean isAssignmentWeightValid() {
+    public boolean isAssignmentWeightValid(boolean isLastAssignment) {
         double sum = 0;
 
-        for (Assignment assignment : assignments) {
-            sum += assignment.getWeight();
+        if (isLastAssignment) {
+            for (Assignment assignment : assignments) {
+                sum += assignment.getWeight();
+            }
+            return sum == 100;
         }
-
-        return sum == 100;
+        return true;
     }
 
     /**
@@ -133,11 +135,11 @@ public class Course {
      * @param maxScore The maximum score of the exam. (e.g. A quiz /10 would mean a max score of 10.)
      * @return Whether the assignment was successfully added to the course.
      */
-    public boolean addAssignment(String assignmentName, double weight, int maxScore) {
+    public boolean addAssignment(String assignmentName, double weight, int maxScore, boolean isLastAssignment) {
         Assignment newAssignment = new Assignment(assignmentName, new ArrayList<Integer>(), weight, maxScore);
 
         this.assignments.add(newAssignment);
-        if (!this.isAssignmentWeightValid()) {
+        if (!this.isAssignmentWeightValid(isLastAssignment)) {
             assignments.removeLast();
             return false;
         }
@@ -173,6 +175,30 @@ public class Course {
      * The last column will be the final score.
      */
     public void displayScores() {
+        System.out.printf("Course: %s(%s)\n\t", this.courseName, this.courseId);
 
+        // Printing header row
+        if (this.assignments.isEmpty()) {
+            System.out.println("Nothing to show.");
+            return;
+        }
+
+        for (Assignment assignment : this.assignments) {
+            System.out.printf("%14s\t", assignment.getAssignmentName());
+        }
+        System.out.println("\t\tFinal score");
+
+        // Printing rest of rows
+        for (int i = 0; i < this.registeredStudents.size(); i++) {
+            String row = String.format("%-10s", this.registeredStudents.get(i).getStudentName());
+
+            for (Assignment assignment : this.assignments) {
+                row += String.format("%d\t\t", assignment.getScores().get(i));
+            }
+
+            row += String.format("\t%d", this.finalScores.get(i));
+
+            System.out.println(row);
+        }
     }
 }
