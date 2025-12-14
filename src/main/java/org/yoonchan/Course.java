@@ -76,7 +76,8 @@ public class Course {
 
     /**
      * Adds a student to the student list of the course.
-     * Also adds a new null element to each assignment of this course, and add a new null element for the finalScores.
+     * <p>
+     * Also adds a new null element to each assignment of this course, and adds a new null element for the finalScores list.
      * @param student The student to be registered.
      * @return Whether the student has successfully been registered.
      */
@@ -132,7 +133,8 @@ public class Course {
      * Adds a new assignment to the course.
      * @param assignmentName The assignment to be added.
      * @param weight The weight of the assignment to be added (0-100).
-     * @param maxScore The maximum score of the exam. (e.g. A quiz /10 would mean a max score of 10.)
+     * @param maxScore The maximum score of the exam. <br>
+     *        (e.g. A quiz /10 would mean a max score of 10.)
      * @return Whether the assignment was successfully added to the course.
      */
     public boolean addAssignment(String assignmentName, double weight, int maxScore, boolean isLastAssignment) {
@@ -154,7 +156,8 @@ public class Course {
     }
 
     /**
-     * Generates random scores for each assignment and student, and calculates the final score for each student. Prints the result.
+     * Generates random scores for each assignment and student, and calculates the final score for each student.
+     * Prints the result.
      */
     public void generateScores() {
         for (Assignment assignment : this.assignments) {
@@ -174,11 +177,11 @@ public class Course {
     /**
      * Displays the scores of a course in a table, with the assignment averages and student weighted average.
      * <p>
-     * The table header will be the nam course name.
-     * The rows will be the students.
-     * The last row will be the average of all students.
-     * The column will be the assignments.
-     * The last column will be the final score.
+     * - The table header will be the course name. <br>
+     * - The rows will be the students. <br>
+     * - The last row will be the average of all students. <br>
+     * - The column will be the assignments. <br>
+     * - The last column will be the final score.
      */
     public void displayScores() {
         if (this.assignments.isEmpty() && this.registeredStudents.isEmpty()) {
