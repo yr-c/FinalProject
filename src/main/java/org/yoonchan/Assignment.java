@@ -35,14 +35,15 @@ public class Assignment {
     }
 
     /**
-     * Calculates the average score for the assignment.
+     * Calculates the average score for the assignment. Prints the result.
      */
-    public void calcAssignmentAvg() {
-        int sum = 0;
+    public double calcAssignmentAvg() {
+        double sum = 0;
+
         for (int score : scores) {
             sum += score;
         }
-        System.out.println("Average score: " + (sum / scores.toArray().length));
+        return sum / scores.toArray().length;
     }
 
     /**
