@@ -32,7 +32,7 @@ public class Address {
     }
 
     public void setPostalCode(String postalCode) {
-        this.postalCode = isPostalCodeValid(postalCode) ? postalCode : this.postalCode;
+        this.postalCode = isPostalCodeValid(postalCode) ? postalCode.toUpperCase() : this.postalCode;
     }
 
     /**
